@@ -1,7 +1,5 @@
 package br.inatel.dm110.ipstatus.beans;
 
-import java.util.Arrays;
-
 import javax.annotation.Resource;
 import javax.ejb.EJB;
 import javax.ejb.Local;
@@ -15,7 +13,6 @@ import javax.jms.Queue;
 import javax.jms.Session;
 import javax.jms.TextMessage;
 
-import br.inatel.dm110.ipstatus.api.IPStatusListTO;
 import br.inatel.dm110.ipstatus.dao.IPStatusDAO;
 import br.inatel.dm110.ipstatus.entities.IPStatus;
 import br.inatel.dm110.ipstatus.interfaces.IPStatusLocal;
@@ -44,9 +41,6 @@ public class IPStatusBean implements IPStatusRemote, IPStatusLocal {
 				
 		NetworkIpGen ipGen = new NetworkIpGen(ip, mask);
 		String[] ips = ipGen.generateIps();
-
-		IPStatusListTO ipStatusListTo = new IPStatusListTO();
-		ipStatusListTo.setIps(Arrays.asList(ips));
 				
 		try (
 				Connection connection = connectionFactory.createConnection();
