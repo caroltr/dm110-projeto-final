@@ -1,0 +1,1 @@
+include "ip-status-ear", "ip-status-war", "ip-status-api", "ip-status-impl", "ip-status-ejb", "ip-status-ejb-client"

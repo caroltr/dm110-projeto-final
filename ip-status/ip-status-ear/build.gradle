@@ -1,0 +1,23 @@
+apply plugin: 'ear'
+
+dependencies {
+	deploy project(path: ':ip-status-war', configuration: 'archives')
+	deploy project(path: ':ip-status-ejb')
+	earlib project(':ip-status-api')
+	earlib project(':ip-status-impl')
+	earlib project(':ip-status-ejb-client')
+}
+
+ear {
+	deploymentDescriptor {
+		def warName = project(':ip-status-war').name
+		def warVersion = project(':ip-status-war').version
+		def warFileName = warName + '-' + warVersion + '.war'
+		webModule(warFileName, 'ip-status')
+
+		def ejbName = project(':ip-status-ejb').name
+		def ejbVersion = project(':ip-status-ejb').version
+		def ejbFileName = ejbName + '-' + ejbVersion + '.jar'
+		module(ejbFileName, 'ejb')
+	}
+}

@@ -1,0 +1,4 @@
+dependencies {
+	compile project(':ip-status-api')
+	compile project(':ip-status-ejb-client')
+}
