@@ -19,7 +19,9 @@ public class IPStatusDAO {
 	}
 
 	public void insert(IPStatus ipStatus) {
-		em.persist(ipStatus);
+		
+		// Insert or update
+		em.merge(ipStatus);
+		em.flush();
 	}
-
 }

@@ -55,7 +55,7 @@ public class IPStatusMDB implements MessageListener {
 	}
 	
 	void saveIPStatus(String ip, boolean status) {
-		
+				
 		IPStatus ipStatus = new IPStatus();
         ipStatus.setIp(ip);
         ipStatus.setStatus(status ? ACTIVE : INACTIVE);
