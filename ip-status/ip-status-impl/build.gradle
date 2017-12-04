@@ -1,4 +1,6 @@
 dependencies {
 	compile project(':ip-status-api')
 	compile project(':ip-status-ejb-client')
+	
+	compile group: 'commons-validator', name: 'commons-validator', version: '1.6'
 }

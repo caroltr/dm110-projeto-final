@@ -7,11 +7,6 @@ import java.util.Scanner;
 public class Ping {
 	
 	private String ip;
-	
-	/*public static void main(String[] args) {		
-		ip = "192.168.0.102";		
-		System.out.println(execPing());
-	}*/
 		
 	public Ping(String ip) {
 		this.ip = ip;

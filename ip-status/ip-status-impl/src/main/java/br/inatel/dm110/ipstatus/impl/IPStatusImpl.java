@@ -3,6 +3,8 @@ package br.inatel.dm110.ipstatus.impl;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 
+import org.apache.commons.validator.routines.InetAddressValidator;
+
 import br.inatel.dm110.ipstatus.api.IPStatusService;
 import br.inatel.dm110.ipstatus.interfaces.IPStatusRemote;
 
@@ -13,12 +15,32 @@ public class IPStatusImpl implements IPStatusService {
 	private IPStatusRemote ipStatusBean;
 	
 	@Override
-	public void setIP(String ip, String mask) {
-		ipStatusBean.setIP(ip, mask);		
+	public String setIP(String ip, Integer mask) {
+
+		if(isIpValid(ip) && isMaskValid(mask)) {		
+			ipStatusBean.setIP(ip, mask);
+			
+			return "Validação do status dos IPs iniciado.";
+		} else {
+			return "Entrada inválida!";
+		}
 	}
 
 	@Override
-	public String getStatus(String ip) {				
-		return ipStatusBean.getStatus(ip);		
+	public String getStatus(String ip) {
+		if(isIpValid(ip)) {		
+			return ipStatusBean.getStatus(ip);	
+		} else {
+			return "Entrada inválida!";
+		}			
 	}
+	
+	private boolean isIpValid(String ip) {
+		return InetAddressValidator.getInstance().isValidInet4Address(ip);
+	}
+	
+	private boolean isMaskValid(Integer mask) {
+		return (mask >= 8 && mask <= 30);
+	}
+	
 }

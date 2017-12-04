@@ -12,7 +12,7 @@ public interface IPStatusService {
 	@GET
 	@Path("/start/{ip}/{mask}")
 	@Produces(MediaType.TEXT_PLAIN)
-	void setIP(@PathParam("ip") String ip, @PathParam("mask") String mask);
+	String setIP(@PathParam("ip") String ip, @PathParam("mask") Integer mask);
 	
 	@GET
 	@Path("/status/{ip}")

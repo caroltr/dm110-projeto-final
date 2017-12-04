@@ -34,7 +34,7 @@ public class IPStatusBean implements IPStatusRemote, IPStatusLocal {
 	private Queue queue;
 
 	@Override
-	public void setIP(String ip, String mask) {
+	public void setIP(String ip, Integer mask) {
 				
 		System.out.println("--- SET IP ---");
 		System.out.println(ip + "/" + mask);

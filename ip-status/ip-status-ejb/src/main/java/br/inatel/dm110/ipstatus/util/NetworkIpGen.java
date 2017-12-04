@@ -4,19 +4,10 @@ public class NetworkIpGen {
 	
 	private String ip;
 	private int mask;
-	
-	/*public static void main(String[] args) {		
-		ip = "192.168.1.0";
-		mask = 28;
 		
-		for(String s : generateIps()) {
-			System.out.println(s);
-		}
-	}*/
-	
-	public NetworkIpGen(String ip, String mask) {
+	public NetworkIpGen(String ip, Integer mask) {
 		this.ip = ip;
-		this.mask = Integer.parseInt(mask);
+		this.mask = mask;
 	}
 	
 	public String[] generateIps() {
