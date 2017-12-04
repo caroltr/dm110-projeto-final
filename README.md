@@ -8,7 +8,7 @@ create table ipstatus (
     status varchar(15) not null
 );
 
-create sequence seq_client;
+create sequence seq_ip_status;
 ```
 
 ### Endpoints
